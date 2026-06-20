@@ -1,0 +1,46 @@
+services:
+  aggregator:
+    build: ./aggregator
+    image: uas-aggregator:latest
+    depends_on:
+      - storage
+      - broker
+    environment:
+      - DATABASE_URL=postgres://user:pass@storage:5432/db
+      - BROKER_URL=redis://broker:6379
+      - WORKERS=4          # jumlah worker consumer paralel (uji konkurensi)
+    ports:
+      - "8080:8080"        # expose untuk demo lokal
+    restart: on-failure
+
+  publisher:
+    build: ./publisher
+    image: uas-publisher:latest
+    depends_on:
+      - aggregator
+      - broker
+    environment:
+      - AGG_URL=http://aggregator:8080
+      - BROKER_URL=redis://broker:6379
+      - TOTAL_EVENTS=100
+      - DUP_RATE=0.3
+      - BURST=50           # 1 event_id panas didorong 50x (bukti race)
+
+  broker:
+    image: redis:7-alpine
+    # tidak expose port keluar - tetap internal
+    volumes:
+      - broker_data:/data
+
+  storage:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_DB=db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+    volumes:
+      - pg_data:/var/lib/postgresql/data   # persistensi: data aman walau container dihapus
+
+volumes:
+  pg_data:
+  broker_data:

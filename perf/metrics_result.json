@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-06-20T04:15:36.765163+00:00",
+  "throughput": {
+    "total_events": 20000,
+    "ingest_seconds": 1.64,
+    "ingest_throughput_eps": 12198,
+    "process_seconds": 95.45,
+    "process_throughput_eps": 210,
+    "received": 20000,
+    "unique_processed": 14000,
+    "duplicate_dropped": 6000,
+    "duplicate_rate": 0.3,
+    "worker_processed": {
+      "worker-1": 3537,
+      "worker-2": 3524,
+      "worker-3": 3520,
+      "worker-4": 3544
+    }
+  },
+  "latency": {
+    "samples": 2000,
+    "concurrency": 50,
+    "throughput_rps": 104,
+    "latency_ms_avg": 470.88,
+    "latency_ms_p50": 445.66,
+    "latency_ms_p95": 764.6,
+    "latency_ms_p99": 1280.47,
+    "latency_ms_max": 1983.59
+  }
+}
