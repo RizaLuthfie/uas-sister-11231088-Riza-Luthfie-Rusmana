@@ -131,13 +131,3 @@ Hasil juga tersimpan ke `perf/metrics_result.json`. Atur beban via env (opsional
 $env:TOTAL=20000 ; $env:DUP_RATE=0.3 ; python perf/loadtest.py
 ```
 
-## Status Pengerjaan
-
-- [x] Compose + Postgres + Redis jalan
-- [x] Schema dedup (UNIQUE constraint) + tabel stats
-- [x] API publish/enqueue/events/stats
-- [x] Idempotency via INSERT ... ON CONFLICT DO NOTHING (transaksional)
-- [x] Multi-worker concurrency (4 worker) + bukti anti double-process (burst)
-- [x] Unit/Integration tests (20 + 1 persistensi opt-in)
-- [x] Uji performa ≥20.000 event (skrip loadtest)
-- [ ] Laporan + video demo
