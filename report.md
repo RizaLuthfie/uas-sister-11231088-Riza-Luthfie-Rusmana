@@ -4,8 +4,8 @@
 **Nama:** Riza Luthfie Rusmana
 **NIM:** 11231088
 **Mata Kuliah:** Sistem Paralel dan Terdistribusi
-**Repositori:** (isi link GitHub Anda)
-**Video Demo:** (isi link YouTube unlisted/public)
+**Repositori:** https://github.com/RizaLuthfie/uas-sister-11231088-Riza-Luthfie-Rusmana
+**Video Demo:** https://youtu.be/iT3mup9oNj0?si=BL7KvQxXH9T9KQwe
 
 ---
 
